@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import Bookshelf from './Bookshelf'
-
 const StyledLink = styled(NavLink)`
   padding: 40px 12px;
   display: inline-block;
