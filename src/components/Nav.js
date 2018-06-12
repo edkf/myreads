@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
+import {MyContext} from './Provider'
+
 const StyledLink = styled(NavLink)`
   padding: 40px 12px;
   display: inline-block;
@@ -38,9 +40,20 @@ class Nav extends Component {
   render () {
     return (
       <Container>
-        <StyledLink to='/reading'>Reading <Counter>5</Counter></StyledLink>
-        <StyledLink to='/to-read'>To Read <Counter>60</Counter></StyledLink>
-        <StyledLink to='/completed'>Completed <Counter>925</Counter></StyledLink>
+        <MyContext.Consumer>
+          {(context) => {
+
+            const {reading, toRead, completed} = context.state
+
+            return (
+              <React.Fragment>
+                <StyledLink to='/reading'>Reading <Counter>{reading.length}</Counter></StyledLink>
+                <StyledLink to='/to-read'>To Read <Counter>{toRead.length}</Counter></StyledLink>
+                <StyledLink to='/completed'>Completed <Counter>{completed.length}</Counter></StyledLink>
+              </React.Fragment>
+            )
+          }}
+        </MyContext.Consumer>
       </Container>
     )
   }
