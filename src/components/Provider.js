@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as BooksAPI from '../BooksAPI'
 
-export const MyContext = React.createContext()
+export const Context = React.createContext()
 
 class Provider extends Component {
 
@@ -32,11 +32,11 @@ class Provider extends Component {
   
   render() {
     return (
-      <MyContext.Provider value={{
+      <Context.Provider value={{
         state: this.state,
       }}>
         {this.props.children}
-      </MyContext.Provider>
+      </Context.Provider>
     )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import {MyContext} from './Provider'
+import {Context} from './Provider'
 
 const StyledLink = styled(NavLink)`
   padding: 40px 12px;
@@ -40,7 +40,7 @@ class Nav extends Component {
   render () {
     return (
       <Container>
-        <MyContext.Consumer>
+        <Context.Consumer>
           {(context) => {
 
             const {reading, toRead, completed} = context.state
@@ -53,7 +53,7 @@ class Nav extends Component {
               </React.Fragment>
             )
           }}
-        </MyContext.Consumer>
+        </Context.Consumer>
       </Container>
     )
   }
