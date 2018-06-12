@@ -16,7 +16,6 @@ const StyledLink = styled(NavLink)`
     border-bottom: 2px solid #000;
   }
 
-
   &:hover {
     opacity: 1;
   }
