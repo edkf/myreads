@@ -7,7 +7,7 @@ import {Context} from './Provider'
 const StyledLink = styled(NavLink)`
   padding: 40px 12px;
   display: inline-block;
-  color: #4F4F4F
+  color: #4F4F4F;
   opacity: 0.5;
   text-decoration: none;
   transition: opacity 0.3s ease;

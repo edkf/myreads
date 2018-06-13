@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Tooltip } from 'react-tippy'
+import 'react-tippy/dist/tippy.css'
 
 import ProgressBar from './ProgressBar'
 
@@ -21,7 +23,7 @@ const Container = styled.a`
 
   &:hover {
 
-    transform: translateY(-5px);
+    transform: translateY(-15px);
     ${Cover} {
       box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
     }
@@ -64,14 +66,18 @@ const Title = styled.h3`
   color: #000000;
   line-height: 1.3;
   letter-spacing: -0.03em;
-  margin: 10px 0 20px 0;
+  margin: 10px 0;
   text-align: center;
 `
 
 class Book extends Component {
   render () {
 
-    const {cover, title, authors} = this.props
+    const {cover, title, authors, pageCount, shelf} = this.props
+
+    const toolTipMessage = shelf === 'read' ? 'Finished 🤓✅' : `You read x pages of ${pageCount}`
+
+    const getRandomProgress = Math.floor(Math.random() * 101) + 1
 
     return (
       <Container href='#'>
@@ -84,7 +90,20 @@ class Book extends Component {
           })}
         </Authors>
         <Title>{title}</Title>
-        <ProgressBar />
+        {shelf !== 'wantToRead' && (
+          <Tooltip
+            title={toolTipMessage}
+            position='bottom'
+            trigger='mouseenter'
+            animation='fade'
+            arrow
+            style={{
+              padding: '10px 0'
+            }}
+            >
+            <ProgressBar shelf={shelf} progress={getRandomProgress} />
+          </Tooltip>
+        )}
       </Container>
     )
   }

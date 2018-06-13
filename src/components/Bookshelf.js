@@ -28,6 +28,8 @@ class Bookshelf extends Component {
                   cover={book.imageLinks.thumbnail}
                   authors={book.authors}
                   title={book.title}
+                  pageCount={book.pageCount}
+                  shelf={book.shelf}
                 />
               ))
             )
