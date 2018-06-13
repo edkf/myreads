@@ -14,7 +14,7 @@ class App extends Component {
         <Provider>
           <React.Fragment>
             <Header />
-            <Route path="/" exact component={Bookshelf} />
+            <Route exact path="/" component={Bookshelf} />
             <Route path="/reading" component={Bookshelf} />
             <Route path="/to-read" component={Bookshelf} />
             <Route path="/completed" component={Bookshelf} />

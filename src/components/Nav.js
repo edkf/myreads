@@ -43,10 +43,11 @@ class Nav extends Component {
         <Context.Consumer>
           {(context) => {
 
-            const {reading, toRead, completed} = context.state
+            const {reading, toRead, completed, books} = context.state
 
             return (
               <React.Fragment>
+                <StyledLink to='/'>All <Counter>{books.length}</Counter></StyledLink>
                 <StyledLink to='/reading'>Reading <Counter>{reading.length}</Counter></StyledLink>
                 <StyledLink to='/to-read'>To Read <Counter>{toRead.length}</Counter></StyledLink>
                 <StyledLink to='/completed'>Completed <Counter>{completed.length}</Counter></StyledLink>
