@@ -14,10 +14,12 @@ class App extends Component {
         <Provider>
           <React.Fragment>
             <Header />
-            <Route exact path="/" component={Bookshelf} />
-            <Route path="/reading" component={Bookshelf} />
-            <Route path="/to-read" component={Bookshelf} />
-            <Route path="/completed" component={Bookshelf} />
+            <Switch>
+              <Route exact path="/" component={Bookshelf} />
+              <Route path="/reading" component={Bookshelf} />
+              <Route path="/to-read" component={Bookshelf} />
+              <Route path="/completed" component={Bookshelf} />
+            </Switch>
           </React.Fragment>
         </Provider>
       </Router>

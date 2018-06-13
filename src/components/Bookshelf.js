@@ -1,19 +1,38 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import {Context} from './Provider'
+import Book from './Book'
+
 const Contanier = styled.div`
-  width: 100%;
-  min-height: calc(100vh - 106px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 95%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7vh 0;
 `
 
 class Bookshelf extends Component {
   render () {
     return (
       <Contanier>
-        Boolshelf
+        <Context.Consumer>
+          {(context) => {
+
+            const {books} = context.state
+
+            return (
+              books.map((book) => (
+                <Book
+                  cover={book.imageLinks.thumbnail}
+                  authors={book.authors}
+                  title={book.title}
+                />
+              ))
+            )
+          }}
+        </Context.Consumer>
       </Contanier>
     )
   }
