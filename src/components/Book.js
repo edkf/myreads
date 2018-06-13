@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import ProgressBar from './ProgressBar'
+
 const Cover = styled.img`
   align-self: center;
   height: 300px;
@@ -62,8 +64,7 @@ const Title = styled.h3`
   color: #000000;
   line-height: 1.3;
   letter-spacing: -0.03em;
-  margin: 0;
-  margin-top: 10px;
+  margin: 10px 0 20px 0;
   text-align: center;
 `
 
@@ -83,6 +84,7 @@ class Book extends Component {
           })}
         </Authors>
         <Title>{title}</Title>
+        <ProgressBar />
       </Container>
     )
   }
