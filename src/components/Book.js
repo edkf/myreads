@@ -85,7 +85,7 @@ class Book extends Component {
         <Authors>
           {authors.map((author) => {
             return (
-              <Author>{author}</Author>
+              <Author key={author}>{author}</Author>
             )
           })}
         </Authors>

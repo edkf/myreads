@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import {Context} from './Provider'
 import Book from './Book'
 
 const Contanier = styled.div`
@@ -20,6 +19,7 @@ class Bookshelf extends Component {
         {
           this.props.books.map((book) => (
             <Book
+              key={book.id}
               cover={book.imageLinks.thumbnail}
               authors={book.authors}
               title={book.title}
