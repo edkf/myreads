@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, IndexLink } from 'react-router-dom'
 
 import './components/global.js'
 import Provider from './components/Provider'
@@ -22,10 +22,10 @@ class App extends Component {
 
                 return (
                   <Switch>
-                    <Route exact path="/" render={(props) => <Bookshelf books={books} />} />
-                    <Route exact path="/reading" render={(props) => <Bookshelf books={reading} />} />
-                    <Route exact path="/to-read" render={(props) => <Bookshelf books={toRead} />} />
-                    <Route exact path="/completed" render={(props) => <Bookshelf books={completed} />} />
+                    <Route to='/' render={(props) => <Bookshelf books={books} />} />
+                    <Route path="/reading" render={(props) => <Bookshelf books={reading} />} />
+                    <Route path="/to-read" render={(props) => <Bookshelf books={toRead} />} />
+                    <Route path="/completed" render={(props) => <Bookshelf books={completed} />} />
                   </Switch>
                 )
               }}
