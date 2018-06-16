@@ -75,9 +75,12 @@ class Book extends Component {
 
     const {cover, title, authors, pageCount, shelf} = this.props
 
-    const toolTipMessage = shelf === 'read' ? 'Finished 🤓✅' : `You read x pages of ${pageCount}`
+    const getRandomProgress = Math.floor(Math.random() * 70) + 1
+    const fakeProgress = getRandomProgress
+    const pagesRead = (fakeProgress * pageCount) / 100
 
-    const getRandomProgress = Math.floor(Math.random() * 101) + 1
+    const toolTipMessage = shelf === 'read' ? 'Finished 🤓✅' : `You read ${Math.round(pagesRead)} pages of the ${pageCount}.`
+
 
     return (
       <Container href='#'>
@@ -101,7 +104,7 @@ class Book extends Component {
               padding: '10px 0'
             }}
             >
-            <ProgressBar shelf={shelf} progress={getRandomProgress} />
+            <ProgressBar shelf={shelf} progress={fakeProgress} />
           </Tooltip>
         )}
       </Container>
