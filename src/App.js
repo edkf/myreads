@@ -21,12 +21,12 @@ class App extends Component {
                 const { books, reading, completed, toRead } = context.state
 
                 return (
-                  <Switch>
+                  <React.Fragment>
                     <Route exact path='/' render={(props) => <Bookshelf books={books} />} />
                     <Route exact path="/reading" render={(props) => <Bookshelf books={reading} />} />
                     <Route exact path="/to-read" render={(props) => <Bookshelf books={toRead} />} />
                     <Route exact path="/completed" render={(props) => <Bookshelf books={completed} />} />
-                  </Switch>
+                  </React.Fragment>
                 )
               }}
             </Context.Consumer>
