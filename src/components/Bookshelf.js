@@ -25,6 +25,7 @@ class Bookshelf extends Component {
               title={book.title}
               pageCount={book.pageCount}
               shelf={book.shelf}
+              rate={book.averageRating}
             />
           ))
         }

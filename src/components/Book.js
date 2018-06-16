@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
+import Rate from './Rate'
 import ProgressBar from './ProgressBar'
 
 const Cover = styled.img`
@@ -73,7 +74,7 @@ const Title = styled.h3`
 class Book extends Component {
   render () {
 
-    const {cover, title, authors, pageCount, shelf} = this.props
+    const {cover, title, authors, pageCount, shelf, rate} = this.props
 
     const getRandomProgress = Math.floor(Math.random() * 70) + 1
     const fakeProgress = getRandomProgress
@@ -85,6 +86,9 @@ class Book extends Component {
     return (
       <Container href='#'>
         <Cover src={cover} />
+        <div>
+          <Rate rate={rate} />
+        </div>
         <Authors>
           {authors.map((author) => {
             return (
