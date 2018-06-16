@@ -17,24 +17,17 @@ class Bookshelf extends Component {
   render () {
     return (
       <Contanier>
-        <Context.Consumer>
-          {(context) => {
-
-            const {books} = context.state
-
-            return (
-              books.map((book) => (
-                <Book
-                  cover={book.imageLinks.thumbnail}
-                  authors={book.authors}
-                  title={book.title}
-                  pageCount={book.pageCount}
-                  shelf={book.shelf}
-                />
-              ))
-            )
-          }}
-        </Context.Consumer>
+        {
+          this.props.books.map((book) => (
+            <Book
+              cover={book.imageLinks.thumbnail}
+              authors={book.authors}
+              title={book.title}
+              pageCount={book.pageCount}
+              shelf={book.shelf}
+            />
+          ))
+        }
       </Contanier>
     )
   }
