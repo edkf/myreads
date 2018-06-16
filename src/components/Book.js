@@ -4,6 +4,7 @@ import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
 import Rate from './Rate'
+import SelectShelf from './SelectShelf'
 import ProgressBar from './ProgressBar'
 
 const Cover = styled.img`
@@ -29,6 +30,12 @@ const Container = styled.a`
       box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
     }
   }
+`
+
+const Status = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 `
 
 const Authors = styled.ul`
@@ -86,9 +93,12 @@ class Book extends Component {
     return (
       <Container href='#'>
         <Cover src={cover} />
-        <div>
+        <Status>
+          <SelectShelf
+            value={shelf}
+          />
           <Rate rate={rate} />
-        </div>
+        </Status>
         <Authors>
           {authors.map((author) => {
             return (
