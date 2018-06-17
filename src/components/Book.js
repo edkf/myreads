@@ -23,11 +23,13 @@ const Container = styled.a`
   text-decoration: none;
   transition: transform 0.5s ease;
 
-  &:hover {
+  @media (min-width: 580px) {
+    &:hover {
 
-    transform: translateY(-15px);
-    ${Cover} {
-      box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
+      transform: translateY(-15px);
+      ${Cover} {
+        box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 `

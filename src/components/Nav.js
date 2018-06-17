@@ -24,7 +24,7 @@ const StyledLink = styled(NavLink)`
 
   @media (max-width: 580px) {
     font-size: 14px;
-    padding: 10px 5px;        
+    padding: 10px 7px;        
   }
 `
 

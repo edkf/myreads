@@ -21,6 +21,7 @@ const Content = styled.div`
   align-items: center;
 
   @media (max-width: 580px) {
+    width: 100%;
     justify-content: center;
   }
 `
