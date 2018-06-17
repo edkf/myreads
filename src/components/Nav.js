@@ -21,6 +21,11 @@ const StyledLink = styled(NavLink)`
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 580px) {
+    font-size: 14px;
+    padding: 10px 5px;        
+  }
 `
 
 const Counter = styled.span`
@@ -34,7 +39,8 @@ const Counter = styled.span`
   opacity: 1;
 `
 
-const Container = styled.nav``
+const Container = styled.nav`
+`
 
 class Nav extends Component {
   render () {

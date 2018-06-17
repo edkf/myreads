@@ -85,7 +85,7 @@ class Book extends Component {
 
   render () {
 
-    const {book, id, shelf, cover, title, authors, pageCount, rate} = this.props
+    const {book, shelf, cover, title, authors, pageCount, rate} = this.props
 
     const getRandomProgress = Math.floor(Math.random() * 70) + 1
     const fakeProgress = getRandomProgress
