@@ -100,13 +100,15 @@ class Book extends Component {
       <Container href='#'>
         <Cover src={cover} />
         <Rate rate={rate} />
-        <Authors>
-          {authors.map((author) => {
-            return (
-              <Author key={author}>{author}</Author>
-            )
-          })}
-        </Authors>
+        {authors && (
+          <Authors>
+            {authors.map((author) => {
+              return (
+                <Author key={author}>{author}</Author>
+              )
+            })}
+          </Authors>
+        )}
         <Title>{title}</Title>
         <SelectShelf
           book={book}

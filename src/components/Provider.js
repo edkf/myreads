@@ -8,7 +8,7 @@ class Provider extends Component {
   state = {
     books: [],
     isSearhOpened: false,
-    query: ''
+    queriedBooks: []
   }
 
   componentDidMount () {
@@ -23,9 +23,12 @@ class Provider extends Component {
       <Context.Provider value={{
         state: this.state,
         getSearchQuery: (event) => {
-          this.setState({
-            query: event.target.value
+          BooksAPI.search(event.target.value).then(response =>{
+            this.setState({
+              queriedBooks: response,
+            })
           })
+
         },
         closeSearch: () => {
           this.setState({

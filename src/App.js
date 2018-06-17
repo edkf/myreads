@@ -20,7 +20,7 @@ class App extends Component {
             <Context.Consumer>
               {(context) => {
 
-                const { books } = context.state
+                const { books, queriedBooks } = context.state
 
                 const reading = books.filter((book) => book.shelf === 'currentlyReading')
                 const toRead = books.filter((book) => book.shelf === 'wantToRead')
@@ -32,6 +32,7 @@ class App extends Component {
                     <Route exact path="/reading" render={(props) => <Bookshelf books={reading} />} />
                     <Route exact path="/to-read" render={(props) => <Bookshelf books={toRead} />} />
                     <Route exact path="/completed" render={(props) => <Bookshelf books={completed} />} />
+                    <Route exact path="/search" render={(props) => <Bookshelf books={queriedBooks || []} />} />
                   </React.Fragment>
                 )
               }}

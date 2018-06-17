@@ -34,7 +34,7 @@ class Bookshelf extends Component {
     return (
       <Contanier>
         {
-          books.map((book) => (
+          books && books.map((book) => (
             <Book
               book={book}
               key={book.id}
