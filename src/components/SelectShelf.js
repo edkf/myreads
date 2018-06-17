@@ -9,7 +9,7 @@ const Select = styled.select`
   font-family: 'Spectral', serif;
   -webkit-appearance: none;
   font-size: 14px;
-  margin: 0 10px;
+  margin: 10px 10px 5px 10px;
   color: #4F4F4F;
   padding: 2px 18px 2px 9px;
   border: 1px solid #DDDDDD;

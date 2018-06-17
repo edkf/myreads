@@ -6,6 +6,7 @@ import RatedStarSrc from '../images/selected-rate-star.svg'
 
 const Container = styled.div`
   display: flex;
+  margin: 20px 0 0 0;
 `
 
 const Star = styled.div`
@@ -28,7 +29,7 @@ class Rate extends Component {
 
     return (
       <Container>
-        {[...Array(5)].map((star, index) => <Star className={ Math.round(rate) > index ? 'active' : '' } />)}
+        {[...Array(5)].map((star, index) => <Star key={index} className={ Math.round(rate) > index ? 'active' : '' } />)}
       </Container>
     )
   }

@@ -5,16 +5,11 @@ export const Context = React.createContext()
 
 class Provider extends Component {
 
-  constructor (props) {
-    super(props)
-    
-    this.state = {
-      books: [],
-      reading: [],
-      completed: [],
-      toRead: [],
-    }
-
+  state = {
+    books: [],
+    reading: [],
+    completed: [],
+    toRead: [],
   }
 
   componentDidMount () {
@@ -34,6 +29,10 @@ class Provider extends Component {
     return (
       <Context.Provider value={{
         state: this.state,
+        updateShelf: (book, shelf) => {
+         {/* BooksAPI.update(book, shelf) */}
+          console.log('aeee')
+        }
       }}>
         {this.props.children}
       </Context.Provider>

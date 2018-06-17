@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
+import {Context} from './Provider'
 import Rate from './Rate'
 import SelectShelf from './SelectShelf'
 import ProgressBar from './ProgressBar'
@@ -15,7 +16,7 @@ const Cover = styled.img`
   transition: box-shadow 0.5s ease;
 `
 
-const Container = styled.a`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10vh;
@@ -32,19 +33,13 @@ const Container = styled.a`
   }
 `
 
-const Status = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-`
-
 const Authors = styled.ul`
   line-height: 1;
   max-width: 220px;
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 15px;
+  margin: 10px 0;
   text-align: center;
 `
 
@@ -74,7 +69,7 @@ const Title = styled.h3`
   color: #000000;
   line-height: 1.3;
   letter-spacing: -0.03em;
-  margin: 10px 0;
+  margin: 0;
   text-align: center;
 `
 
@@ -93,12 +88,7 @@ class Book extends Component {
     return (
       <Container href='#'>
         <Cover src={cover} />
-        <Status>
-          <SelectShelf
-            value={shelf}
-          />
-          <Rate rate={rate} />
-        </Status>
+        <Rate rate={rate} />
         <Authors>
           {authors.map((author) => {
             return (
@@ -107,6 +97,15 @@ class Book extends Component {
           })}
         </Authors>
         <Title>{title}</Title>
+        <Context.Consumer>
+          {(context) => {
+            return (
+              <SelectShelf
+                value={shelf}
+              />
+            )
+          }}
+        </Context.Consumer>
         {shelf !== 'wantToRead' && (
           <Tooltip
             title={toolTipMessage}
