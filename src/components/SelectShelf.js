@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import arrow from '../images/arrow-down.png'
-
+import {Context} from './Provider'
 
 const Select = styled.select`
   min-width: 105px;
@@ -25,12 +25,21 @@ const Select = styled.select`
 class SelectShelf extends Component {
   render () {
     return (
-      <Select value={this.props.value}>
-        <option value="" disabled selected>Add to...</option>
-        <option value="currentlyReading">Reading</option>
-        <option value="wantToRead">To Read</option>
-        <option value="read">Completed</option>
-      </Select>
+      <Context.Consumer>
+      {(context) => {
+        return (
+          <Select
+            value={this.props.shelf}
+            onChange={(event) => context.updateShelf(event, this.props.book)}
+            >
+            <option value="" disabled defaultValue>Add to...</option>
+            <option value="currentlyReading">Reading</option>
+            <option value="wantToRead">To Read</option>
+            <option value="read">Completed</option>
+          </Select>
+        )
+      }}
+    </Context.Consumer>
     )
   }
 }

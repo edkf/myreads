@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
-import {Context} from './Provider'
 import Rate from './Rate'
 import SelectShelf from './SelectShelf'
 import ProgressBar from './ProgressBar'
@@ -74,9 +73,19 @@ const Title = styled.h3`
 `
 
 class Book extends Component {
+
+  constructor (props) {
+    super(props)
+    
+    this.state = {
+      shelf: this.props.shelf
+    }
+  }
+  
+
   render () {
 
-    const {cover, title, authors, pageCount, shelf, rate} = this.props
+    const {book, id, shelf, cover, title, authors, pageCount, rate} = this.props
 
     const getRandomProgress = Math.floor(Math.random() * 70) + 1
     const fakeProgress = getRandomProgress
@@ -97,15 +106,10 @@ class Book extends Component {
           })}
         </Authors>
         <Title>{title}</Title>
-        <Context.Consumer>
-          {(context) => {
-            return (
-              <SelectShelf
-                value={shelf}
-              />
-            )
-          }}
-        </Context.Consumer>
+        <SelectShelf
+          book={book}
+          value={shelf}
+        />
         {shelf !== 'wantToRead' && (
           <Tooltip
             title={toolTipMessage}

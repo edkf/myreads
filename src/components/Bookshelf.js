@@ -19,7 +19,9 @@ class Bookshelf extends Component {
         {
           this.props.books.map((book) => (
             <Book
+              book={book}
               key={book.id}
+              id={book.id}
               cover={book.imageLinks.thumbnail}
               authors={book.authors}
               title={book.title}
