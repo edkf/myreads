@@ -43,7 +43,11 @@ class Nav extends Component {
         <Context.Consumer>
           {(context) => {
 
-            const {reading, toRead, completed, books} = context.state
+            const {books} = context.state
+
+            const reading = books.filter((book) => book.shelf === 'currentlyReading')
+            const toRead = books.filter((book) => book.shelf === 'wantToRead')
+            const completed = books.filter((book) => book.shelf === 'read')
 
             return (
               <React.Fragment>

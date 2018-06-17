@@ -15,7 +15,7 @@ const Cover = styled.img`
   transition: box-shadow 0.5s ease;
 `
 
-const Container = styled.div`
+const Container = styled.a`
   display: flex;
   flex-direction: column;
   margin-bottom: 10vh;

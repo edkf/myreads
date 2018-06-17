@@ -15,12 +15,7 @@ class Provider extends Component {
   componentDidMount () {
     BooksAPI.getAll()
       .then((books) => {
-
-          const reading = books.filter((book) => book.shelf === 'currentlyReading')
-          const toRead = books.filter((book) => book.shelf === 'wantToRead')
-          const completed = books.filter((book) => book.shelf === 'read')
-
-        this.setState({ books, reading, toRead, completed})
+        this.setState({ books })
       })
   }
   
@@ -29,16 +24,13 @@ class Provider extends Component {
       <Context.Provider value={{
         state: this.state,
         updateShelf: (event, book) => {
-          BooksAPI.update(book, event.target.value).then(response =>{
-
+          BooksAPI.update(book, event).then(response =>{
             // set shelf for new or updated book
-            book.shelf = event.target.value
-
+            book.shelf = event
             // get list of books without updated or new book
-            var updatedBooks = this.state.books.filter( book => book.id !== book.id )
-
+            var updatedBooks = this.state.books.filter( item => item.id !== book.id )
             // add book to array and set new state
-            updatedBooks.push(book);
+            updatedBooks.push(book)
             this.setState({ books: updatedBooks })
           })
         }
