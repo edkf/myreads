@@ -7,9 +7,8 @@ class Provider extends Component {
 
   state = {
     books: [],
-    reading: [],
-    completed: [],
-    toRead: [],
+    isSearhOpened: false,
+    query: ''
   }
 
   componentDidMount () {
@@ -23,6 +22,21 @@ class Provider extends Component {
     return (
       <Context.Provider value={{
         state: this.state,
+        getSearchQuery: (event) => {
+          this.setState({
+            query: event.target.value
+          })
+        },
+        closeSearch: () => {
+          this.setState({
+            isSearhOpened: false
+          })
+        },
+        openSearch: () => {
+          this.setState({
+            isSearhOpened: true
+          })
+        },
         updateShelf: (event, book) => {
           BooksAPI.update(book, event).then(response =>{
             // set shelf for new or updated book

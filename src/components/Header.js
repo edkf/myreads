@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
+import {Context} from './Provider'
 import myReadsLogo from '../images/logo-myreads.svg'
 import Nav from './Nav'
 import searchIcon from '../images/search-icon.svg'
@@ -54,7 +55,7 @@ const Logo = styled.img`
   }
 `
 
-const Search = styled.button`
+const Search = styled(NavLink)`
   width: 20px;
   height: 20px;
   background: url(${searchIcon});
@@ -62,6 +63,7 @@ const Search = styled.button`
   background-repeat: no-repeat;
   background-position: center center;
   border: none;
+  display: inline-block;
   cursor: pointer;
 `
 
@@ -77,7 +79,13 @@ class Header extends Component {
             <Nav/>
           </Left>
           <Right>
-            <Search />
+            <Context.Consumer>
+              {(context) => {
+                return (
+                  <Search onClick={context.openSearch} to='/search' />
+                )
+              }}
+            </Context.Consumer>
           </Right>
         </Content>
       </Container>

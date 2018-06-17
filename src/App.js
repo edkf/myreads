@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './components/global.js'
 import Provider from './components/Provider'
 import {Context} from './components/Provider'
+import SearchBar from './components/SearchBar'
 import Header from './components/Header'
 import Bookshelf from './components/Bookshelf'
 
@@ -14,6 +15,7 @@ class App extends Component {
       <Router>
         <Provider>
           <React.Fragment>
+            <SearchBar />
             <Header />
             <Context.Consumer>
               {(context) => {
