@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import {Context} from './Provider'
+import {Context} from '../Provider'
 
 const StyledLink = styled(NavLink)`
   padding: 40px 12px;

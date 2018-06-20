@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import arrow from '../images/arrow-down.png'
-import {Context} from './Provider'
+import {Context} from '../Provider'
 
 const Select = styled.select`
   min-width: 105px;

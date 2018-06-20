@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import {Context} from './Provider'
+import {Context} from '../Provider'
 import closeIcon from '../images/close-icon.svg'
 
 const Container = styled.div`

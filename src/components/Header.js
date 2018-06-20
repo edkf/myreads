@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import {Context} from './Provider'
+import {Context} from '../Provider'
 import myReadsLogo from '../images/logo-myreads.svg'
 import Nav from './Nav'
 import searchIcon from '../images/search-icon.svg'
