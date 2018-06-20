@@ -22,8 +22,8 @@ class Provider extends Component {
     return (
       <Context.Provider value={{
         state: this.state,
-        getSearchQuery: (event) => {
-          BooksAPI.search(event.target.value).then((books) => {
+        getSearchQuery: (query) => {
+          BooksAPI.search(query).then((books) => {
             books && books.length > 0 ?  this.setState({queriedBooks: books}) : this.setState({ queriedBooks: []})
           })
         },

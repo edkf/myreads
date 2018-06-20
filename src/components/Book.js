@@ -136,8 +136,8 @@ class Book extends Component {
 
 Book.propTypes = {
   book: propTypes.object.isRequired,
-  shelf: propTypes.string.isRequired,
-  cover: propTypes.string.isRequired,
+  shelf: propTypes.string,
+  cover: propTypes.string,
   id: propTypes.string.isRequired,
   pageCount: propTypes.number.isRequired,
   rate: propTypes.number,

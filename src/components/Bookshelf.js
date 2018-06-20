@@ -40,7 +40,7 @@ class Bookshelf extends Component {
               book={book}
               key={book.id}
               id={book.id}
-              cover={book.imageLinks.thumbnail}
+              cover={book.imageLinks ? book.imageLinks.thumbnail : ''}
               authors={book.authors}
               title={book.title}
               pageCount={book.pageCount}

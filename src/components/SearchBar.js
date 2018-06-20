@@ -59,7 +59,7 @@ class SearchBar extends Component {
               />
               <Input
                 placeholder='Search...'
-                onChange={(event) => context.getSearchQuery(event)}
+                onChange={(event) => context.getSearchQuery(event.target.value)}
               />
             </Container>
           )
