@@ -27,11 +27,21 @@ class Provider extends Component {
           this.setState({
             query
           })
-
           BooksAPI.search(this.state.query).then((queriedBooks) => {
-            queriedBooks > 0 ? this.setState({queriedBooks}) : this.setState({ queriedBooks: []})
-          })
+            if (queriedBooks && queriedBooks.length > 0) {
+              queriedBooks.map((queriedBook) => {
+                this.state.books.map((i) =>{
+                  if (queriedBook.id === i.id) {
+                    queriedBook.shelf = i.shelf
+                  }
+                })
+              })
 
+              this.setState({queriedBooks})
+            } else {
+              this.setState({ queriedBooks: []})
+            }
+          })
         },
         closeSearch: () => {
           this.setState({

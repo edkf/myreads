@@ -115,7 +115,7 @@ class Book extends Component {
           book={book}
           value={shelf}
         />
-        {shelf !== 'wantToRead' && (
+        {shelf && shelf !== 'wantToRead' && (
           <Tooltip
             title={toolTipMessage}
             position='bottom'
@@ -139,7 +139,7 @@ Book.propTypes = {
   shelf: propTypes.string,
   cover: propTypes.string,
   id: propTypes.string.isRequired,
-  pageCount: propTypes.number.isRequired,
+  pageCount: propTypes.number,
   rate: propTypes.number,
 }
 
