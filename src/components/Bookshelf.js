@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import propTypes from 'prop-types'
 
 import Book from './Book'
 
@@ -51,6 +52,10 @@ class Bookshelf extends Component {
       </Contanier>
     )
   }
+}
+
+Bookshelf.propTypes = {
+  books: propTypes.array.isRequired
 }
 
 export default Bookshelf

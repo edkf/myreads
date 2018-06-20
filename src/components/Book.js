@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
@@ -99,7 +100,7 @@ class Book extends Component {
     return (
       <Container href='#'>
         <Cover src={cover} />
-        <Rate rate={rate} />
+        {rate && <Rate rate={rate} />}
         {authors && (
           <Authors>
             {authors.map((author) => {
@@ -131,6 +132,15 @@ class Book extends Component {
       </Container>
     )
   }
+}
+
+Book.propTypes = {
+  book: propTypes.object.isRequired,
+  shelf: propTypes.string.isRequired,
+  cover: propTypes.string.isRequired,
+  id: propTypes.string.isRequired,
+  pageCount: propTypes.number.isRequired,
+  rate: propTypes.number,
 }
 
 export default Book

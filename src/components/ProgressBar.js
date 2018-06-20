@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import propTypes from 'prop-types'
 
 const Container = styled.div`
   width: 200px;
@@ -21,13 +22,15 @@ class ProgressBar extends Component {
   
   render () {
 
+    const { shelf, progress } = this.props
+
     const bookProgress = () => {
-      if (this.props.shelf === 'read') {
+      if (shelf === 'read') {
         return '100%';
-      } else if (this.props.shelf === 'wantToRead') {
+      } else if (shelf === 'wantToRead') {
         return '0';
       } else {
-        return `${this.props.progress}%`;
+        return `${progress}%`;
       }
     }
 
@@ -42,6 +45,11 @@ class ProgressBar extends Component {
       </Container>
     )
   }
+}
+
+ProgressBar.propTypes = {
+  shelf: propTypes.string,
+  progress: propTypes.number
 }
 
 export default ProgressBar

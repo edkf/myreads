@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import styled from 'styled-components'
 
 import StarSrc from '../images/rate-star.svg'
@@ -33,6 +34,10 @@ class Rate extends Component {
       </Container>
     )
   }
+}
+
+Rate.propTypes = {
+  rate: propTypes.number
 }
 
 export default Rate
