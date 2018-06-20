@@ -23,12 +23,9 @@ class Provider extends Component {
       <Context.Provider value={{
         state: this.state,
         getSearchQuery: (event) => {
-          BooksAPI.search(event.target.value).then(response =>{
-            this.setState({
-              queriedBooks: response,
-            })
+          BooksAPI.search(event.target.value).then((books) => {
+            books && books.length > 0 ?  this.setState({queriedBooks: books}) : this.setState({ queriedBooks: []})
           })
-
         },
         closeSearch: () => {
           this.setState({
@@ -42,11 +39,8 @@ class Provider extends Component {
         },
         updateShelf: (event, book) => {
           BooksAPI.update(book, event).then(response =>{
-            // set shelf for new or updated book
             book.shelf = event
-            // get list of books without updated or new book
             var updatedBooks = this.state.books.filter( item => item.id !== book.id )
-            // add book to array and set new state
             updatedBooks.push(book)
             this.setState({ books: updatedBooks })
           })
