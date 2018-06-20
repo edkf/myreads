@@ -16,7 +16,7 @@ const Cover = styled.img`
   transition: box-shadow 0.5s ease;
 `
 
-const Container = styled.a`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10vh;
@@ -98,7 +98,7 @@ class Book extends Component {
 
 
     return (
-      <Container href='#'>
+      <Container>
         <Cover src={cover} />
         {rate && <Rate rate={rate} />}
         {authors && (
