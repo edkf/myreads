@@ -27,7 +27,7 @@ class Provider extends Component {
           this.setState({
             query
           })
-          if (query) {
+          if (query  && query.length > 1) {
             BooksAPI.search(this.state.query).then((queriedBooks) => {
               if (queriedBooks && queriedBooks.length > 0) {
                 queriedBooks.map((queriedBook) => {
