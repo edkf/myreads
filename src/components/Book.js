@@ -90,7 +90,7 @@ class Book extends Component {
 
     return (
       <Container>
-        <Cover src={imageLinks.thumbnail} />
+        <Cover src={imageLinks ? imageLinks.thumbnail : ''} />
         {averageRating && <Rate rate={averageRating ? averageRating : ''} />}
         {authors && (
           <Authors>
