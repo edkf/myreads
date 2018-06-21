@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import arrow from '../images/arrow-down.png'
@@ -22,15 +22,14 @@ const Select = styled.select`
   background-position: 90% center;
 `
 
-class SelectShelf extends Component {
-  render () {
-    return (
-      <Context.Consumer>
+const SelectShelf = (props) => {
+  return (
+    <Context.Consumer>
       {(context) => {
         return (
           <Select
-            value={this.props.value}
-            onChange={(event) => context.updateShelf(event.target.value, this.props.book)}
+            value={props.value}
+            onChange={(event) => context.updateShelf(event.target.value, props.book)}
             >
             <option value="" disabled defaultValue>Add to...</option>
             <option value="none">None</option>
@@ -41,8 +40,7 @@ class SelectShelf extends Component {
         )
       }}
     </Context.Consumer>
-    )
-  }
+  )
 }
 
 export default SelectShelf
