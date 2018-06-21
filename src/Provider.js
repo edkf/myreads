@@ -29,7 +29,9 @@ class Provider extends Component {
           })
           if (query.length > 1) {
             BooksAPI.search(this.state.query).then((queriedBooks) => {
+
               if (queriedBooks && queriedBooks.length > 0) {
+
                 queriedBooks.map((queriedBook) => {
                   this.state.books.find((i) =>{
                     if (queriedBook.id === i.id) {
@@ -47,6 +49,7 @@ class Provider extends Component {
               console.log(error)
             })
           } else {
+            console.log('foi?')
             this.setState({ queriedBooks: []})
           }
         },
