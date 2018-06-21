@@ -33,7 +33,7 @@ class SelectShelf extends Component {
             onChange={(event) => context.updateShelf(event.target.value, this.props.book)}
             >
             <option value="" disabled defaultValue>Add to...</option>
-            <option value="none">None</option>
+            <option value="none">Remove</option>
             <option value="currentlyReading">Reading</option>
             <option value="wantToRead">To Read</option>
             <option value="read">Completed</option>

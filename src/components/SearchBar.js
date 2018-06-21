@@ -58,6 +58,7 @@ class SearchBar extends Component {
                 onClick={context.closeSearch}
               />
               <Input
+                value={context.state.query}
                 placeholder='Search...'
                 onChange={(event) => context.getSearchQuery(event.target.value)}
               />

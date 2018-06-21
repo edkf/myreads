@@ -27,28 +27,32 @@ class Provider extends Component {
           this.setState({
             query
           })
-          BooksAPI.search(this.state.query).then((queriedBooks) => {
-            if (queriedBooks && queriedBooks.length > 0) {
-              queriedBooks.map((queriedBook) => {
-                this.state.books.find((i) =>{
-                  if (queriedBook.id === i.id) {
-                    queriedBook.shelf = i.shelf
-                  }
+          if (query) {
+            BooksAPI.search(this.state.query).then((queriedBooks) => {
+              if (queriedBooks && queriedBooks.length > 0) {
+                queriedBooks.map((queriedBook) => {
+                  this.state.books.find((i) =>{
+                    if (queriedBook.id === i.id) {
+                      queriedBook.shelf = i.shelf
+                    }
+                  })
                 })
-              })
 
-              this.setState({queriedBooks})
-            } else {
-              this.setState({ queriedBooks: []})
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+                this.setState({queriedBooks})
+              } else {
+                this.setState({ queriedBooks: []})
+              }
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+          }
         },
         closeSearch: () => {
           this.setState({
-            isSearhOpened: false
+            isSearhOpened: false,
+            query: '',
+            queriedBooks: []
           })
         },
         openSearch: () => {
