@@ -76,19 +76,10 @@ const Title = styled.h3`
 `
 
 class Book extends Component {
-
-  constructor (props) {
-    super(props)
-    
-    this.state = {
-      shelf: this.props.shelf
-    }
-  }
-  
-
   render () {
 
-    const {book, shelf, cover, title, authors, pageCount, rate} = this.props
+    const {imageLinks, averageRating, authors, shelf, title} = this.props.book
+    const {book, pageCount} = this.props
 
     const getRandomProgress = Math.floor(Math.random() * 70) + 1
     const fakeProgress = getRandomProgress
@@ -99,8 +90,8 @@ class Book extends Component {
 
     return (
       <Container>
-        <Cover src={cover} />
-        {rate && <Rate rate={rate} />}
+        <Cover src={imageLinks.thumbnail} />
+        {averageRating && <Rate rate={averageRating ? averageRating : ''} />}
         {authors && (
           <Authors>
             {authors.map((author) => {

@@ -38,14 +38,7 @@ class Bookshelf extends Component {
           books && books.map((book) => (
             <Book
               book={book}
-              key={book.id}
-              id={book.id}
-              cover={book.imageLinks ? book.imageLinks.thumbnail : ''}
-              authors={book.authors}
-              title={book.title}
               pageCount={book.pageCount}
-              shelf={book.shelf}
-              rate={book.averageRating}
             />
           ))
         }
