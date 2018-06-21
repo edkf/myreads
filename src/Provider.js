@@ -30,7 +30,7 @@ class Provider extends Component {
           BooksAPI.search(this.state.query).then((queriedBooks) => {
             if (queriedBooks && queriedBooks.length > 0) {
               queriedBooks.map((queriedBook) => {
-                this.state.books.map((i) =>{
+                this.state.books.find((i) =>{
                   if (queriedBook.id === i.id) {
                     queriedBook.shelf = i.shelf
                   }
@@ -41,6 +41,9 @@ class Provider extends Component {
             } else {
               this.setState({ queriedBooks: []})
             }
+          })
+          .catch((error) => {
+            console.log(error)
           })
         },
         closeSearch: () => {

@@ -19,7 +19,7 @@ const Cover = styled.img`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 10vh;
+  margin-bottom: 30px;
   align-items: center;
   text-decoration: none;
   transition: transform 0.5s ease;
@@ -127,11 +127,7 @@ class Book extends Component {
 
 Book.propTypes = {
   book: propTypes.object.isRequired,
-  shelf: propTypes.string,
-  cover: propTypes.string,
-  id: propTypes.string.isRequired,
-  pageCount: propTypes.number,
-  rate: propTypes.number,
+  pageCount: propTypes.number
 }
 
 export default Book

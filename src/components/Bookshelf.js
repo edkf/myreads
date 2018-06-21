@@ -5,12 +5,15 @@ import propTypes from 'prop-types'
 import Book from './Book'
 
 const Contanier = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   width: 95%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 7vh 0;
+  padding: 40px 0 0 0;
+`
+
+const List = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
   @media (max-width: 1100px) {
     grid-template-columns: repeat(3, 1fr);    
@@ -25,30 +28,42 @@ const Contanier = styled.div`
   }
 `
 
+const Title = styled.h3`
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 40px 0;
+  color: #4F4F4F;
+`
+
 class Bookshelf extends Component {
 
   
   render () {
     
-    const {books} = this.props
+    const {books, title} = this.props
 
     return (
       <Contanier>
-        {
-          books && books.map((book) => (
-            <Book
-              book={book}
-              pageCount={book.pageCount}
-            />
-          ))
-        }
+        {title && <Title>{title}</Title>}
+        <List>
+          {
+            books && books.map((book) => (
+              <Book
+                key={book.id}
+                book={book}
+                pageCount={book.pageCount}
+              />
+            ))
+          }
+        </List>
       </Contanier>
     )
   }
 }
 
 Bookshelf.propTypes = {
-  books: propTypes.array.isRequired
+  books: propTypes.array.isRequired,
+  title: propTypes.string
 }
 
 export default Bookshelf
