@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
-import getRandomNumber from '../utils/getRandomNumber'
 import Rate from './Rate'
 import SelectShelf from './SelectShelf'
 import ProgressBar from './ProgressBar'
@@ -80,8 +79,7 @@ class Book extends Component {
   render () {
 
     const {imageLinks, averageRating, authors, shelf, title} = this.props.book
-    const {book, pageCount} = this.props
-    const fakeProgress = getRandomNumber(70)
+    const {book, pageCount, fakePercentage} = this.props
 
     return (
       <Container>
@@ -103,7 +101,7 @@ class Book extends Component {
         />
         {shelf && shelf !== 'wantToRead' && (
           <Tooltip
-            title={shelf === 'read' ? 'Finished 🤓✅' : `You read ${Math.round((fakeProgress * pageCount) / 100)} pages of the ${pageCount}.`}
+            title={shelf === 'read' ? 'Finished 🤓✅' : `You read ${Math.round((fakePercentage * pageCount) / 100)} pages of the ${pageCount}.`}
             position='bottom'
             trigger='mouseenter'
             animation='fade'
@@ -112,7 +110,7 @@ class Book extends Component {
               padding: '10px 0'
             }}
             >
-            <ProgressBar shelf={shelf} progress={fakeProgress} />
+            <ProgressBar shelf={shelf} progress={fakePercentage} />
           </Tooltip>
         )}
       </Container>
@@ -122,7 +120,8 @@ class Book extends Component {
 
 Book.propTypes = {
   book: propTypes.object.isRequired,
-  pageCount: propTypes.number
+  pageCount: propTypes.number,
+  fakePercentage: propTypes.number
 }
 
 export default Book

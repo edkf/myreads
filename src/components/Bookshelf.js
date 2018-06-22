@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import propTypes from 'prop-types'
 
+import getRandomNumber from '../utils/getRandomNumber'
 import Book from './Book'
 
 const Contanier = styled.div`
@@ -52,6 +53,7 @@ class Bookshelf extends Component {
                 key={book.id}
                 book={book}
                 pageCount={book.pageCount}
+                fakePercentage={getRandomNumber(70)}
               />
             ))
           }
