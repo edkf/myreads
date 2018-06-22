@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 
+import getRandomNumber from '../utils/getRandomNumber'
 import Rate from './Rate'
 import SelectShelf from './SelectShelf'
 import ProgressBar from './ProgressBar'
@@ -80,13 +81,7 @@ class Book extends Component {
 
     const {imageLinks, averageRating, authors, shelf, title} = this.props.book
     const {book, pageCount} = this.props
-
-    const getRandomProgress = Math.floor(Math.random() * 70) + 1
-    const fakeProgress = getRandomProgress
-    const pagesRead = (fakeProgress * pageCount) / 100
-
-    const toolTipMessage = shelf === 'read' ? 'Finished 🤓✅' : `You read ${Math.round(pagesRead)} pages of the ${pageCount}.`
-
+    const fakeProgress = getRandomNumber(70)
 
     return (
       <Container>
@@ -108,7 +103,7 @@ class Book extends Component {
         />
         {shelf && shelf !== 'wantToRead' && (
           <Tooltip
-            title={toolTipMessage}
+            title={shelf === 'read' ? 'Finished 🤓✅' : `You read ${Math.round((fakeProgress * pageCount) / 100)} pages of the ${pageCount}.`}
             position='bottom'
             trigger='mouseenter'
             animation='fade'
